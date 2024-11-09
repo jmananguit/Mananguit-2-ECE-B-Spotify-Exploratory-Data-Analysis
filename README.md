@@ -235,7 +235,10 @@ dataset.fillna(0, inplace=True)  # The inplace=True modifies the DataFrame in pl
 dataset['in_deezer_playlists'] = dataset['in_deezer_playlists'].astype(str).str.replace(',', '').fillna(0).astype(float).astype(int)
 dataset['in_shazam_charts'] = dataset['in_shazam_charts'].astype(str).str.replace(',', '').fillna(0).astype(float).astype(int)
 ```
+# 🔴Summary and Insights of Overview of Dataset
+:purple_circle: In total it was found that the number of rows in the dataset was found to be 953 rows and the total number of columns was found to be 24. In addition the dataset was found to have three data types which include integers, floats, and strings. After looking at the dataset, it was also found that there are a number of missing values. Based on the data, the column with highest number of missing value was 'keys', followed by 'in_shazam_charts'. With relation to this the highest amount of missing data type as integers which corresponds to the high number of missing 'in_shazam_charts' values then followed by strings. 
 
+❗ In addition, to improve compatibility of the dataset, you might have to convert the file type in order to be properly called within the python code.
 ## Basic Descriptive Statistics
 
 - **Commands Used**
@@ -382,6 +385,10 @@ plt.show()
   <img src="https://github.com/user-attachments/assets/836b6162-c04e-41bd-ab5a-fb40138dcc18" alt="Centered Image">
 </p>
 
+# 🔴 Summary of Basic Descriptive Statistics
+
+🟣 The average number of streams in this dataset is approximately 513.6 million. This value indicates the central tendency of track popularity across all songs. The median number of streams, at 290.2 million, provides the midpoint of the data, showing that half of the tracks have fewer than this number of streams, while the other half have more. The standard deviation of streams is 566.8 million, reflecting substantial variability in track popularity, with some tracks significantly outperforming others in terms of stream count. This high standard deviation suggests that a few tracks might have exceptionally high stream counts, creating a wide range in the dataset. It was found that as the years passes by, the number tracks increased dramatically. Specifically, there is a big spike in the increase number of tracks starting around the year 2020. As for the Artist Count, it was found that the lesser number of Artist work on a track, the higher of number of tracks are produced. This implies that most Artists and Musicians prefers to work alone or be much more efficient in releasing tracks. 
+
 
 
 ## Top Performers
@@ -465,6 +472,8 @@ plt.show()
   <img src="https://github.com/user-attachments/assets/327e56bf-43c5-44d9-b4af-d7026e4d3cc7" alt="Centered Image">
 </p>
 
+# 🔴 Summary of Top Performers
+🟣 The track with the highest number of streams in the dataset was found to be "Blinding Lights" by The Weeknd, with over 3.7 billion streams. This song leads the list of top-streamed tracks, followed closely by "Shape of You" by Ed Sheeran, which has over 3.5 billion streams. And when it comes to the most frequently appearing artists based on the number of tracks in the dataset, Taylor Swift tops the list with a remarkable 34 tracks, Followed by The Weeknd, who has 22 tracks. Bad Bunny and SZA each have 19 tracks, and Harry Styles rounds out the top five with 17 tracks. 
 
 ## Temporal Trends
 
@@ -574,6 +583,8 @@ plt.show()
   <img src="https://github.com/user-attachments/assets/361b3596-7796-4463-a883-5bbfd1b6dd44" alt="Centered Image">
 </p>
 
+# 🔴 Summary of Temporal Trends
+:purple_circle: The analysis of track releases over time shows a clear upward trend, with a notable surge in recent years. Specifically, from 2021 to 2023, there was a significant increase in the number of tracks released. The peak occurred in 2022, with 402 songs released, followed by 2023 with 175. This rise likely reflects a growing trend in music production and more frequent releases in the age of the internet. Looking at monthly release patterns, January and May emerge as the months with the highest release counts, with January seeing around 134 songs and May slightly more. While there is some variation in releases across other months, these two months consistently have higher numbers, suggesting possible seasonal trends or intentional release strategies by artists and labels.
 
 ## Genre and Music Characteristics
 
@@ -697,6 +708,10 @@ plt.show()
   <img src="https://github.com/user-attachments/assets/ba481119-8285-4da9-9f7c-3ab75fa495b6" alt="Centered Image">
 </p>
 
+# Summary of Genre and Music Characteristics
+🟣 The correlation analysis between streams and musical attributes, such as BPM, danceability, and energy reveals minimal influence of these factors on streaming popularity. Specifically, BPM has a correlation of approximately -0.002 with streams, indicating almost no relationship between a song’s tempo and its popularity. Danceability shows a slightly stronger correlation with streams at -0.104, though this relationship remains weak, suggesting that danceability does not significantly affect stream counts. Energy has a correlation of around -0.026 with streams, similarly showing negligible influence. Among these attributes, danceability has the highest correlation with streams, but it is still too weak to suggest a meaningful impact on a song’s popularity. 
+
+🟣 Exploring correlations between other musical attributes, danceability and energy display a moderate positive correlation of 0.198, indicating that tracks with higher danceability tend to have higher energy. Additionally, valence and acousticness exhibit a stronger negative correlation of -0.819, suggesting that tracks with a happier sound (higher valence) are generally less acoustic. These correlations highlight some internal relationships between musical characteristics, but none of them have a substantial effect on streaming numbers.
 
 ## Platform Popularity
 
@@ -809,6 +824,10 @@ plt.show()
   <img src="https://github.com/user-attachments/assets/14498e1b-1133-4ed1-896d-39c3bf6b5855" alt="Centered Image">
 </p>
 
+# 🔴 Summary of Platform Popularity
+:purple_circle: The comparison between the number of tracks in spotify_playlists, spotify_charts, and apple_playlists shows notable differences in how these platforms curate and feature songs. The spotify_playlists category has the highest number of tracks, with approximately 4955719 tracks, indicating that Spotify playlists have a wide variety of songs available. Apple Playlists, with 64625 tracks, contain fewer entries, suggesting a more selective curation compared to Spotify’s playlists. Meanwhile, spotify_charts have only 11445 tracks, representing the most popular and trending songs on Spotify at any given time.
+
+Given these numbers, it appears that Spotify playlists include a more extensive selection of music, whereas Spotify charts favor the most popular tracks due to their relatively smaller, curated list focused on current trends and hits. This suggests that Spotify may provide broader exposure for both mainstream and niche songs through its playlists, while Spotify charts specifically highlight the most popular tracks.
 
 ## Advanced Analysis
 
@@ -963,4 +982,10 @@ plt.show()
 #### Expected Results
 ![image](https://github.com/user-attachments/assets/1d94d4ec-d240-4011-bc61-4e1539df2274)
 
-    
+# 🔴 Summary of Advanced Analysis 
+:purple_circle: The analysis of streams data shows patterns based on musical key and mode. Tracks in keys like C# Major and G Major tend to have higher playlist and chart appearances, suggesting a preference for these keys in popular music. Additionally, major key tracks generally receive more streams than minor ones, indicating a slight favorability for major keys.
+
+🟣 In terms of artist appearances, The Weeknd, Ed Sheeran, and Taylor Swift top the list, consistently appearing in playlists and charts. Other popular artists, such as Harry Styles and Eminem, also have a strong presence. This suggests that certain genres and artists are more widely promoted on music platforms, reflecting their broad appeal and influential role in current music trends.
+
+# 🏁 End
+## Thank you for reading! 💜🎊
