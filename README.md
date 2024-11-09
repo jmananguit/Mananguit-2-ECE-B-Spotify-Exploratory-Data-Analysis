@@ -987,5 +987,4 @@ plt.show()
 
 🟣 In terms of artist appearances, The Weeknd, Ed Sheeran, and Taylor Swift top the list, consistently appearing in playlists and charts. Other popular artists, such as Harry Styles and Eminem, also have a strong presence. This suggests that certain genres and artists are more widely promoted on music platforms, reflecting their broad appeal and influential role in current music trends.
 
-# 🏁 End
-## Thank you for reading! 💜🎊
+# Thank you for reading! 💜🎊
