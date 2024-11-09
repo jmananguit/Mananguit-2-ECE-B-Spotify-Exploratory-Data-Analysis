@@ -42,7 +42,7 @@ rows, columns = dataset.shape
 print('Number of Rows:',rows)
 print('Number of Columns:',columns)
 ```
-#### Expected Result
+#### Expected Result:
 ```python
 Number of Rows: 953
 Number of Columns: 24
@@ -74,8 +74,53 @@ print('\n',missingval_count.head(10))
 <div align="center">
   <img src="https://github.com/user-attachments/assets/316807ee-2af6-4c36-91da-ab090a87f694" alt="image" width="300" height="280">
 </div>
- 
+
+## Basic Plotting Commands
+- These Commands are Essential in Order to Properly Visualize the Data we Gathered
+
+``` python
+sns.barplot() - Creates a barplot of the given data
+sns.lineplot() - Creates a lineplot
+plt.title() - Creates the title of the plot
+plt.figure(figsize=(x,y)) - Determines the canvas size of the plot
+plt.xticks() - Rotates the text of the x and y data
+plt.xlabel - Creates Label for X Axis
+plt.ylabel - Creates Label for Y Axis
+plt.legend() - Creates Legend
+plt.show() - Prints the plot
+```
+### Missing Values Plot
+``` python
+# Calculate the sum of missing values (NaN) for each column in the dataset
+missingval_count = dataset.isnull().sum()
+
+# Create a new figure with specified size 
+plt.figure(figsize=(12, 6))
+
+# Create a bar plot using seaborn
+# x-axis: column names from the dataset
+# y-axis: count of missing values
+# palette: "viridis" color scheme
+# hue: color intensity based on missing value count
+sns.barplot(x=missingval_count.index, y=missingval_count.values, palette="viridis",hue=missingval_count)
+
+# Customize the format of the plot and add titles
+plt.title('Missing Values per Column')
+plt.xticks(rotation=90)
+plt.xlabel('Column Names')
+plt.ylabel('Missing Values')
+plt.legend(title='Missing Values')
+plt.show()
+```
+#### Expected Result:
+<div align="center">
+<img src="https://github.com/user-attachments/assets/45fa9f61-1c7a-4541-bfac-ef5f6c6c6d47"alt="image" width="600" height="350">
+</div>
+
 ### Data Types
+-To determine data types, the command ```python .dtypes ``` can be used.
+-To calculate the number of columns with each data type, the command ```python .value_counts ``` can be used
+-Syntax: varname = dataFrame.dtypes.valuecounts()
 ``` python
 data_types = dataset.dtypes.value_counts()
 #to properly change the column name without affect the data, assign data_types to another variable
@@ -86,4 +131,36 @@ data_types_table.columns = ['Data Type', 'No. Col']
 print('Number of Columns per data type:')
 data_types_table
 ```
+#### Expected Result
 
+<div align="center">
+![image](https://github.com/user-attachments/assets/e812f99c-6d5c-4523-b8be-cd37913c059c)
+</div>
+
+### Data Type Plot
+> :exclamation: Use the Plotting Commands Shown Earlier
+
+```python
+# Set figure with specified size 
+plt.figure(figsize=(8, 6))
+
+# Create barplot using seaborn
+sns.barplot(x=data_types.index.astype(str), y=data_types.values, palette="viridis",hue=data_types.index.astype(str))
+
+# Customize the format of the plot and add titles
+plt.title("Number of Each Data Type in Dataset")
+plt.xlabel("Data Type")
+plt.ylabel("Count of Columns")
+plt.xticks(rotation=45)
+plt.show()
+```
+
+#### Result
+<div align="center">
+![image](https://github.com/user-attachments/assets/b127bf52-89c4-4594-9121-1128ac60e3eb)
+</div>
+
+### Data Type for Each Column
+- To get the data type for Each Column the following will be used
+- '.dtypes()' - returns data type of each column
+- .reset_index() - used to properly format the table
