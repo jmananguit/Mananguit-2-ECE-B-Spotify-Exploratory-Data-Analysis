@@ -413,11 +413,10 @@ topartist
 
 
 ###  Plot for Top 5 Most Frequent Artists Based on the Number of tracks
+
+- Plotting the barplot for the top 5 most frequent artists by number of tracks using Seaborn
 ```python
-# Plotting the barplot for the top 5 most frequent artists by number of tracks using Seaborn
 plt.figure(figsize=(10, 6))
-```
-```python
 sns.barplot(data=topartist, x='Artist Name', y='Tracks', palette='dark:lightcoral',hue='Artist Name')
 plt.xlabel('Artist Name')
 plt.ylabel('Number of Tracks')
@@ -427,17 +426,18 @@ plt.tight_layout()
 plt.show()
 ```
 ## Temporal Trends
+
+- Get the value of number of songs released per year
 ```python
-#get the value of number of songs released per year
 trackperyear = dataset['released_year'].value_counts().sort_index()
 yearcounttable = trackperyear.reset_index()
 ```
+- Rename the columns 
 ```python
-#rename the columns 
 yearcounttable.columns=['Released Year','Number of Songs']
 ```
+- Print results
 ```python
-#print results
 print(yearcounttable.head())
 print(yearcounttable.tail())
 ```
@@ -455,11 +455,11 @@ Released Year  Number of Songs
     47           2021              119
     48           2022              402
     49           2023              175
-### Plot for No.Tracks Released per Year
 ```
+### Plot for No.Tracks Released per Year
 
+- Plotting the line plot for the count of songs per released year
 ```python
-# Plotting the line plot for the count of songs per released year
 plt.figure(figsize=(12, 6))
 sns.lineplot(x=trackperyear.index, y=trackperyear.values, marker="o", color='#957DAD')
 plt.title("No.Tracks Released per Year")
@@ -467,7 +467,6 @@ plt.xlabel("Released Year")
 plt.ylabel("Number of Tracks") # Rotate x-axis labels for better readability
 plt.grid(True)
 plt.show()
-
 ```
 
 ### Number of Tracks per Month
@@ -477,18 +476,17 @@ plt.show()
   - **.value_counts()** - counts the occurrences of each unique value in the released_year column of dataset.
   - **.reset_index()** - used to properly format the table
 
-
+- Get the number of Tracks released per month
 ```python
-#Get the number of Tracks released per month
 trackpermonth = dataset['released_month'].value_counts().reset_index()
 ```
+- Sort values in ascending order
 ```python
-#Sort values in ascending order
 trackpermonth = trackpermonth.sort_values(by='released_month')
 trackmonthtable = trackpermonth.reset_index()
 ```
+- Print the values
 ```python
-#Print the values
 print(trackmonthtable.head())
 print(trackmonthtable.tail())
 ```
@@ -510,17 +508,16 @@ print(trackmonthtable.tail())
 
 ### Plot for No. Songs Released per Month
 
-
+- Configure the figure size
 ```python
-#Configure the figure size
 plt.figure(figsize=(20, 10))
 ```
+- Create barplot
 ```python
-#Create barplot
 sns.barplot(data=trackpermonth, x='released_month', y='count', palette='Accent',hue='released_month')
 ```
+- Format the titles and labels
 ```python
-#Format the titles and labels
 plt.title("No. of Tracks Released per Month")
 plt.xlabel("Released Month")
 plt.ylabel("Number of Songs")
@@ -534,15 +531,14 @@ plt.show()
 - In order to perform a correlational analysis **<span style="background-color: #FFDFD3; color: black">'.corr()'</span>** command
 - **Syntax** - varname = dataframe['streams'].corr(dataframe.['musicalattribute'])
 
-
+- Using the given syntax, get the correlation of streams between the three musical attributes
 ```python
-#Using the given syntax, get the correlation of streams between the three musical attributes
 bpmcor = dataset['streams'].corr(dataset['bpm'])
 dancecor = dataset['streams'].corr(dataset['danceability_%'])
 energycor = dataset['streams'].corr(dataset['energy_%'])
 ```
+- Print the values of correlations
 ```python
-#Print the values of correlations
 print('Correlation Between Streams and BPM:',bpmcor)
 print('\nCorrelation Between Streams and Danceability:', dancecor)
 print('\nCorrelation Between Streams and Energy:', energycor)
@@ -557,55 +553,51 @@ print('\nCorrelation Between Streams and Energy:', energycor)
 
  ### Plot for Correlations between streams
 
-
+- Create a single figure with subplots for each scatter plot using plt.subplot
 ```python
-# Create a single figure with subplots for each scatter plot using plt.subplot
 plt.figure(figsize=(18, 6))
 ```
+- Scatter plot for streams vs bpm in the first subplot
 ```python
-# Scatter plot for streams vs bpm in the first subplot
 plt.subplot(1, 3, 1)
 sns.scatterplot(data=dataset, x='streams', y='bpm',color='#FD8A8A')
 plt.title("Streams vs BPM")
 plt.xlabel("Streams")
 plt.ylabel("BPM")
 ```
+- Scatter plot for streams vs danceability_% in the second subplot
 ```python
-# Scatter plot for streams vs danceability_% in the second subplot
 plt.subplot(1, 3, 2)
 sns.scatterplot(data=dataset, x='streams', y='danceability_%',color='#9EA1D4')
 plt.title("Streams vs Danceability_%")
 plt.xlabel("Streams")
 plt.ylabel("Danceability_%")
 ```
+- Scatter plot for streams vs energy_% in the third subplot
 ```python
-# Scatter plot for streams vs energy_% in the third subplot
 plt.subplot(1, 3, 3)
 sns.scatterplot(data=dataset, x='streams', y='energy_%',color='#A8D1D1')
 plt.title("Streams vs Energy_%")
 plt.xlabel("Streams")
 plt.ylabel("Energy_%")
 ```
+- Adjust layout for clarity
 ```python
-# Adjust layout for clarity
 plt.tight_layout()
 plt.show()
-
 ```
 
 ###  Correlations of Danceability vs Energy and Valence vs Acousticness
-
-
+- Calculate the correlation between Danceability vs Energy
 ```python
-#Calculate the correlation between Danceability vs Energy
 dance_energy_corr = dataset['danceability_%'].corr(dataset['energy_%'])
 ```
+- Calculate the correlation between Valence vs Acousticness
 ```python
-#Calculate the correlation between Valence vs Acousticness
 val_acou_corr = dataset['valence_%'].corr(dataset['acousticness_%'])
 ```
+- Print the correlation values
 ```python
-#Print the correlation values
 print('Correlation Between Danceability and Energy:',dance_energy_corr)
 print('\nCorrelation Between Valence and Acousticness:',val_acou_corr)
 ```
@@ -618,29 +610,29 @@ print('\nCorrelation Between Valence and Acousticness:',val_acou_corr)
 
 ### Plot for Correlations of Danceability vs Energy and Valence vs Acousticness
 
+- Configure the figure size
 ```python
-#Configure the figure size
 plt.figure(figsize=(18, 6))
 ```
+- Create subplots to view both plots
+- Scatter plot for streams vs bpm in the first subplot
 ```python
-#Create subplots to view both plots 
-# Scatter plot for streams vs bpm in the first subplot
 plt.subplot(1, 2, 1)
 sns.scatterplot(data=dataset, x='danceability_%', y='energy_%',color='#957DAD')
 plt.title("Danceability vs Energy")
 plt.xlabel("Danceability")
 plt.ylabel("Energy")
 ```
+- Scatter plot for streams vs danceability_% in the second subplot
 ```python
-# Scatter plot for streams vs danceability_% in the second subplot
 plt.subplot(1, 2, 2)
 sns.scatterplot(data=dataset, x='valence_%', y='acousticness_%',color='#D291BC')
 plt.title("Valence vs Acousticness")
 plt.xlabel("Valence")
 plt.ylabel("Acousticness")
 ```
+- Adjust layout for clarity
 ```python
-# Adjust layout for clarity
 plt.tight_layout()
 plt.show()
 ```
@@ -651,34 +643,33 @@ plt.show()
 - **.sum()** - enables user to be able to get the total values of the column
 - **Syntax** = varname = dataframe[platformtlist/chart].sum()
 
-
+- Get the sum of the specified columns
 ```python
-# Get the sum of the specified columns
 spotplaylist = dataset['in_spotify_playlists'].sum()
 spotcharts = dataset['in_spotify_charts'].sum()
 appleplaylist = dataset['in_apple_playlists'].sum()
 ```
+- Print the values
 ```python
-#Print the values
 print('Number of Tracks in spotify_playlists:',spotplaylist)
 print('\nNumber of Tracks in spotify_charts:', spotcharts)
 print('\nNumber of Tracks in apple_playlists:',appleplaylist)
 ```
+- Get the sum of the specified columns
 ```python
-# Get the sum of the specified columns
 applecharts = dataset['in_apple_charts'].sum()
 deezerlist = dataset['in_deezer_playlists'].sum()
 deezercharts = dataset['in_deezer_charts'].sum()
 ```
+- Total the data from charts and playlist for each platfotm
 ```python
-#Total the data from charts and playlist for each platfotm
 appletotal = applecharts + appleplaylist
 deezertotal = deezercharts + deezerlist 
 spotifytotal = spotplaylist + spotcharts
 shazamtotal= dataset['in_shazam_charts'].sum()
 ```
+- Print results
 ```python
-# Print results
 print('\n\nNumber of Tracks in Apple is:',appletotal)
 print('\nNumber of Tracks in Deezer is:', deezertotal)
 print('\nNumber of Tracks in Spotify is:', spotifytotal)
@@ -704,21 +695,20 @@ print('\nNumber of Tracks in Shazam is:', shazamtotal)
 
 ## Plotting the number of tracks in Spotify Playlist, Spotify Charts, and Apple Playlist
 
-
+- Create a dictionary the contains Spotify Playlist, Spotify Charts, and Apple Playlist and its corresponding values 
 ```python
-#Create a dictionary the contains Spotify Playlist, Spotify Charts, and Apple Playlist and its corresponding values 
 playlist_counts = {'Spotify Playlists': spotplaylist,'Spotify Charts': spotcharts,'Apple Playlists': appleplaylist}
 ```
+- Configure the figure size
 ```python
-#Configure the figure size
 plt.figure(figsize=(10, 6))
 ```
+- Create a bar plot of the data
 ```python
-#Create a bar plot of the data
 sns.barplot(x=list(playlist_counts.keys()), y=list(playlist_counts.values()), palette='Blues',hue=list(playlist_counts.keys()))
 ```
+- Format the labels and titles of the plot
 ```python
-#Format the labels and titles of the plot
 plt.xlabel('Playlist/Chart Type')
 plt.ylabel('Number of Tracks')
 plt.title('Number of Tracks in Spotify Playlists, Spotify Charts, and Apple Playlists')
@@ -728,21 +718,20 @@ plt.show()
 
 ## Plotting number of tracks per platform
 
-
+- Create a dictionary which contains the total number of tracks per platform
 ```python
-# Create a dictionary which contains the total number of tracks per platform
 platform_totals = {'Apple': appletotal, 'Deezer': deezertotal,'Spotify': spotifytotal, 'Shazam': shazamtotal}
 ```
+- Configure figure size
 ```python
-#Configure figure size
 plt.figure(figsize=(10, 6))
 ```
+- Create a barplot
 ```python
-#Create a barplot
 sns.barplot(x=list(platform_totals.keys()), y=list(platform_totals.values()), palette='coolwarm',hue=list(platform_totals.keys()))
 ```
+- Put appropriate titles and labels
 ```python
-#Put appropriate titles and labels
 plt.xlabel('Platform')
 plt.ylabel('Total Tracks in Playlists/Charts')
 plt.title('Platforms Favoring the Most Popular Tracks')
@@ -752,21 +741,20 @@ plt.show()
 
 ## Advanced Analysis
 
-
+- create a dataset that contains'in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists', 'in_apple_charts', 'in_deezer_playlists', 'in_deezer_charts', 'in_shazam_charts'
 ```python
-#create a dataset that contains'in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists', 'in_apple_charts', 'in_deezer_playlists', 'in_deezer_charts', 'in_shazam_charts'
 columns_track = ['in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists', 'in_apple_charts', 'in_deezer_playlists', 'in_deezer_charts', 'in_shazam_charts']
 ```
+- Calculate the sum for each row across the specified columns and create a new column
 ```python
-# Calculate the sum for each row across the specified columns and create a new column
 dataset['total_appearances'] = dataset[columns_track ].sum(axis=1)
 ```
+- Group by key and mode and calculate the total track count, playlist/chart count, and streams
 ```python
-#Group by key and mode and calculate the total track count, playlist/chart count, and streams
 spotify_summary = dataset.groupby(['key', 'mode']).agg(total_tracks=('track_name', 'size'),total_playlist_chart_count=('total_appearances', 'sum'),total_streams=('streams', 'sum')).reset_index()
 ```
+- print results
 ```python
-#print results
 print(spotify_summary.head())
 print('\n',spotify_summary.tail())
 ```
@@ -788,17 +776,16 @@ print('\n',spotify_summary.tail())
 
 ### Plot for Total Tracks by Key and Mode
 
-
+- Configure figuresize
 ```python
-#Configure figuresize
 plt.figure(figsize=(10, 6))
 ```
+- Create barplot of total tracks by Key and Mode
 ```python
-#Create barplot of total tracks by Key and Mode
 sns.barplot(data=spotify_summary, x='key', y='total_tracks', hue='mode',palette='Purples')
 ```
+- Configure the title and labels
 ```python
-#Configure the title and labels
 plt.title("Total Tracks by Key and Mode")
 plt.xlabel("Key")
 plt.ylabel("Total Tracks")
@@ -808,17 +795,16 @@ plt.show()
 
 ### Plot for Total Playlist/Chart Count by Key and Mode
 
-
+- Sample plot showing total playlist/chart count by key and mode
 ```python
-# Sample plot showing total playlist/chart count by key and mode
 plt.figure(figsize=(10, 6))
 ```
+- Create barplot of total playlist/chart count by Key and Mode
 ```python
-#Create barplot of total playlist/chart count by Key and Mode
 sns.barplot(data=spotify_summary, x='key', y='total_playlist_chart_count', hue='mode',palette='Purples')
 ```
+- Configure titles and lables
 ```python
-#Configure titles and lables
 plt.title("Total Playlist/Chart Count by Key and Mode")
 plt.xlabel("Key")
 plt.ylabel("Total Playlist/Chart Count")
@@ -829,17 +815,16 @@ plt.show()
 
 ### Plot for Total Streams by Key and Mode
 
-
+- Sample plot showing total streams by key and mode
 ```python
-# Sample plot showing total streams by key and mode
 plt.figure(figsize=(10, 6))
 ```
+- Create barplot of total streams by Key and Mode
 ```python
-# Create barplot of total streams by Key and Mode
 sns.barplot(data=spotify_summary, x='key', y='total_streams', hue='mode',palette='Purples')
 ```
+- Configure titles and labels
 ```python
-# Configure titles and labels
 plt.title("Total Streams by Key and Mode")
 plt.xlabel("Key")
 plt.ylabel("Total Streams")
@@ -848,21 +833,18 @@ plt.show()
 ```
 # Top Artists per Total Appearances
 
-
-```python
-# Calculate the total appearances across all platforms for each artist
-#Create dataframe the contains the columns of playlist and charts of each platform
-```
+- Calculate the total appearances across all platforms for each artist
+- Create dataframe the contains the columns of playlist and charts of each platform
 ```python
 totaldata = ['in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists','in_apple_charts', 'in_deezer_playlists', 'in_deezer_charts', 'in_shazam_charts']
 ```
+- Calculate the total appearances in every platform
 ```python
-#Calculate the total appearances in every platform
 dataset['total_appearances'] = dataset[totaldata].sum(axis=1)
 dataset['total_appearances'].reset_index()
 ```
+- Arrange the data from the top 10 highest total appearances
 ```python
-#Arrange the data from the top 10 highest total appearances
 top_artists_total_appearances = dataset.groupby('artist(s)_name')['total_appearances'].sum().nlargest(10).reset_index()
 top_artists_total_appearances
 
@@ -870,18 +852,17 @@ top_artists_total_appearances
 
 ### Plot of Top Artist per Total Appearances
 
-
+- Plotting the barplot for the top artists by total appearances
+- Configure the figure size
 ```python
-# Plotting the barplot for the top artists by total appearances
-#Configure the figure size
 plt.figure(figsize=(14, 6))
 ```
+- Create barplot of top artist per total appearances
 ```python
-#Create barplot of top artist per total appearances
 sns.barplot(y=top_artists_total_appearances['total_appearances'], x=top_artists_total_appearances['artist(s)_name'], palette="magma",hue=top_artists_total_appearances['artist(s)_name'])
 ```
+- Configure titles and labels
 ```python
-#Configure titles and labels
 plt.title("Top 10 Artists by Playlist and Chart Appearances")
 plt.xlabel("Artist Name")
 plt.ylabel("Total Appearances")
