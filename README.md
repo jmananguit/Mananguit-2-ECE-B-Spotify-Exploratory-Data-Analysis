@@ -50,7 +50,7 @@ Number of Rows: 953
 Number of Columns: 24
 ```
 
-## Determining the Missing Values and Data Types
+## :part_alternation_mark: Determining the Missing Values and Data Types
 ### Missing Values
 - In order to calculate the count of missing values for each column in the dataset, we need to determine the total number of NaN (Not a Number) elements in the dataset
 - The command '.isnull' can be used to determine if an elemenet in a dataframe is NaN
@@ -144,8 +144,8 @@ plt.show()
 </div>
 
 ### Data Types
--To determine data types, the command ```python .dtypes ``` can be used.
--To calculate the number of columns with each data type, the command ```python .value_counts ``` can be used
+- To determine data types, the command ```python .dtypes ``` can be used.
+- To calculate the number of columns with each data type, the command ```python .value_counts ``` can be used
 -Syntax: varname = dataFrame.dtypes.valuecounts()
 ``` python
 data_types = dataset.dtypes.value_counts()
@@ -199,6 +199,22 @@ plt.show()
 - To get the data type for Each Column the following will be used
 - '.dtypes()' - returns data type of each column
 - .reset_index() - used to properly format the table
+  
+- Determine the the data type for each column and assign to a variable
+``` Python
+column_data_types = dataset.dtypes.reset_index()
+```
+- Renames the columns of column_data_types
+``` Python
+column_data_types.columns = ['Column', '   Data Type']
+```
+- Display the DataFrame with column names and their data types
+``` Python
+print("\nData types of each column:") 
+column_data_types
+```
+#### Expected Result
+![image](https://github.com/user-attachments/assets/3a909c98-20cb-4604-b717-3fcba4352d44) ![image](https://github.com/user-attachments/assets/9184fe8e-0a1e-4af4-abae-e0b6562ae304)
 
 ## Data Wrangling
 
@@ -246,11 +262,11 @@ print('The Standard Deviation of Streams is:', stddev)
 
 #### Expected Output
 
-**The Average Number of Streams is: 513597931.3137461**
+> **The Average Number of Streams is: 513597931.3137461**
 
-**The Median of Number of Streams is: 290228626.0**
+> **The Median of Number of Streams is: 290228626.0**
 
-**The Standard Deviation of Streams is: 566803887.0588316**
+> **The Standard Deviation of Streams is: 566803887.0588316**
 
 
 - **Number of Songs per Year**
@@ -425,6 +441,9 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+#### Expected Results
+![image](https://github.com/user-attachments/assets/327e56bf-43c5-44d9-b4af-d7026e4d3cc7)
+
 ## Temporal Trends
 
 - Get the value of number of songs released per year
@@ -468,6 +487,8 @@ plt.ylabel("Number of Tracks") # Rotate x-axis labels for better readability
 plt.grid(True)
 plt.show()
 ```
+#### Expected Value
+![image](https://github.com/user-attachments/assets/c7fc70a5-1d00-459b-a2b7-3496e4205eb8)
 
 ### Number of Tracks per Month
 
@@ -523,6 +544,8 @@ plt.xlabel("Released Month")
 plt.ylabel("Number of Songs")
 plt.show()
 ```
+#### Expected Results
+![image](https://github.com/user-attachments/assets/361b3596-7796-4463-a883-5bbfd1b6dd44)
 
 ## Genre and Music Characteristics
 
@@ -545,11 +568,11 @@ print('\nCorrelation Between Streams and Energy:', energycor)
 ```
 #### Expected Output
 
- Correlation Between Streams and BPM: -0.0020107392431484824
+ > Correlation Between Streams and BPM: -0.0020107392431484824
     
- Correlation Between Streams and Danceability: -0.10445104424167974
+ > Correlation Between Streams and Danceability: -0.10445104424167974
     
- Correlation Between Streams and Energy: -0.02631090790485633
+ > Correlation Between Streams and Energy: -0.02631090790485633
 
  ### Plot for Correlations between streams
 
@@ -586,6 +609,8 @@ plt.ylabel("Energy_%")
 plt.tight_layout()
 plt.show()
 ```
+#### Expected Results
+![image](https://github.com/user-attachments/assets/66de4db0-160c-463c-a0da-8636d6593014)
 
 ###  Correlations of Danceability vs Energy and Valence vs Acousticness
 - Calculate the correlation between Danceability vs Energy
@@ -636,6 +661,8 @@ plt.ylabel("Acousticness")
 plt.tight_layout()
 plt.show()
 ```
+#### Expected Result 
+![image](https://github.com/user-attachments/assets/ba481119-8285-4da9-9f7c-3ab75fa495b6)
 
 ## Platform Popularity
 
@@ -715,6 +742,8 @@ plt.title('Number of Tracks in Spotify Playlists, Spotify Charts, and Apple Play
 plt.tight_layout()
 plt.show()
 ```
+#### Expected Result
+![image](https://github.com/user-attachments/assets/f6e6a2da-e108-4f62-a83c-83fb24d6161c)
 
 ## Plotting number of tracks per platform
 
@@ -738,6 +767,8 @@ plt.title('Platforms Favoring the Most Popular Tracks')
 plt.tight_layout()
 plt.show()
 ```
+#### Expected Results
+![image](https://github.com/user-attachments/assets/14498e1b-1133-4ed1-896d-39c3bf6b5855)
 
 ## Advanced Analysis
 
@@ -792,6 +823,8 @@ plt.ylabel("Total Tracks")
 plt.legend(title="Mode")
 plt.show()
 ```
+#### Expected Result
+![image](https://github.com/user-attachments/assets/28282345-4797-4e80-b80b-e3e11ae73270)
 
 ### Plot for Total Playlist/Chart Count by Key and Mode
 
@@ -810,8 +843,9 @@ plt.xlabel("Key")
 plt.ylabel("Total Playlist/Chart Count")
 plt.legend(title="Mode")
 plt.show()
-
 ```
+#### Expected Result
+![image](https://github.com/user-attachments/assets/1506d30d-6c35-45d9-b8aa-f2171a8f53d9)
 
 ### Plot for Total Streams by Key and Mode
 
@@ -831,6 +865,9 @@ plt.ylabel("Total Streams")
 plt.legend(title="Mode")
 plt.show()
 ```
+#### Expected Result
+![image](https://github.com/user-attachments/assets/5c2de0a3-60bb-4689-aa7e-39ca07c15d65)
+
 # Top Artists per Total Appearances
 
 - Calculate the total appearances across all platforms for each artist
@@ -847,8 +884,9 @@ dataset['total_appearances'].reset_index()
 ```python
 top_artists_total_appearances = dataset.groupby('artist(s)_name')['total_appearances'].sum().nlargest(10).reset_index()
 top_artists_total_appearances
-
 ```
+#### Expected Result
+![image](https://github.com/user-attachments/assets/12b12aa8-5911-4e40-b874-4407e8d46e58)
 
 ### Plot of Top Artist per Total Appearances
 
@@ -870,5 +908,7 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+#### Expected Results
+![image](https://github.com/user-attachments/assets/1d94d4ec-d240-4011-bc61-4e1539df2274)
 
     
