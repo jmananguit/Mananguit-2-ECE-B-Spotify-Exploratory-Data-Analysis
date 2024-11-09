@@ -214,7 +214,10 @@ print("\nData types of each column:")
 column_data_types
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/3a909c98-20cb-4604-b717-3fcba4352d44) ![image](https://github.com/user-attachments/assets/9184fe8e-0a1e-4af4-abae-e0b6562ae304)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3a909c98-20cb-4604-b717-3fcba4352d44" width="36%" alt="Image 1">
+  <img src="https://github.com/user-attachments/assets/9184fe8e-0a1e-4af4-abae-e0b6562ae304" width="36%" alt="Image 2">
+</p>
 
 ## Data Wrangling
 
@@ -323,7 +326,9 @@ plt.show()
 ```
 #### Expected Result
 
-![image](https://github.com/user-attachments/assets/9730c813-a4d2-4cee-a338-091b129efcc6)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9730c813-a4d2-4cee-a338-091b129efcc6" alt="Centered Image">
+</p>
 
 ### Number of Tracks per Artist Count
 
@@ -345,7 +350,10 @@ artist_count_values.columns = ['Artist Count', 'Number of Tracks']
 artist_count_values
 ```
 #### Expected Value
-![image](https://github.com/user-attachments/assets/c756ba7a-eab1-4e76-ba41-abda494490c6)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c756ba7a-eab1-4e76-ba41-abda494490c6" alt="Centered Image">
+</p>
+
 
 
 - To properly visualize the data, a bar plot can be used
@@ -370,7 +378,10 @@ plt.legend(title='No. Tracks')
 plt.show()
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/836b6162-c04e-41bd-ab5a-fb40138dcc18)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/836b6162-c04e-41bd-ab5a-fb40138dcc18" alt="Centered Image">
+</p>
+
 
 
 ## Top Performers
@@ -389,7 +400,10 @@ ascdataset = ascdataset.head(5)
 ascdataset[['track_name', 'artist(s)_name', 'streams']]
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/68ad3e47-02d2-45b2-b186-eb9d31e5c8b3)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/68ad3e47-02d2-45b2-b186-eb9d31e5c8b3" alt="Centered Image">
+</p>
+
 
 - Plotting the barplot for the top 5 most streamed tracks using Seaborn
 ```python
@@ -403,7 +417,9 @@ plt.tight_layout()
 plt.show()
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/a1cd7139-c218-4e9d-b49e-20fc5d692724)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a1cd7139-c218-4e9d-b49e-20fc5d692724" alt="Centered Image">
+</p>
 
 - To calculate the number of tacks per artist, the command **<span style="background-color: #FFDFD3; color: black">'.value_counts'</span>** can be used
   - **Syntax** - varname = dataFrame[artist_count].valuecounts().sort_index().reset_index()
@@ -425,7 +441,10 @@ topartist.columns = ['Artist Name', 'Tracks']
 topartist
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/c2bdfe48-edee-4307-adcc-7f3e7daa7b85)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c2bdfe48-edee-4307-adcc-7f3e7daa7b85" alt="Centered Image">
+</p>
+
 
 
 ###  Plot for Top 5 Most Frequent Artists Based on the Number of tracks
@@ -442,7 +461,10 @@ plt.tight_layout()
 plt.show()
 ```
 #### Expected Results
-![image](https://github.com/user-attachments/assets/327e56bf-43c5-44d9-b4af-d7026e4d3cc7)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/327e56bf-43c5-44d9-b4af-d7026e4d3cc7" alt="Centered Image">
+</p>
+
 
 ## Temporal Trends
 
@@ -488,7 +510,10 @@ plt.grid(True)
 plt.show()
 ```
 #### Expected Value
-![image](https://github.com/user-attachments/assets/c7fc70a5-1d00-459b-a2b7-3496e4205eb8)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c7fc70a5-1d00-459b-a2b7-3496e4205eb8" alt="Centered Image">
+</p>
+
 
 ### Number of Tracks per Month
 
@@ -545,7 +570,10 @@ plt.ylabel("Number of Songs")
 plt.show()
 ```
 #### Expected Results
-![image](https://github.com/user-attachments/assets/361b3596-7796-4463-a883-5bbfd1b6dd44)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/361b3596-7796-4463-a883-5bbfd1b6dd44" alt="Centered Image">
+</p>
+
 
 ## Genre and Music Characteristics
 
@@ -610,7 +638,10 @@ plt.tight_layout()
 plt.show()
 ```
 #### Expected Results
-![image](https://github.com/user-attachments/assets/66de4db0-160c-463c-a0da-8636d6593014)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/66de4db0-160c-463c-a0da-8636d6593014" alt="Centered Image">
+</p>
+
 
 ###  Correlations of Danceability vs Energy and Valence vs Acousticness
 - Calculate the correlation between Danceability vs Energy
@@ -662,7 +693,10 @@ plt.tight_layout()
 plt.show()
 ```
 #### Expected Result 
-![image](https://github.com/user-attachments/assets/ba481119-8285-4da9-9f7c-3ab75fa495b6)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ba481119-8285-4da9-9f7c-3ab75fa495b6" alt="Centered Image">
+</p>
+
 
 ## Platform Popularity
 
@@ -743,7 +777,10 @@ plt.tight_layout()
 plt.show()
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/f6e6a2da-e108-4f62-a83c-83fb24d6161c)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f6e6a2da-e108-4f62-a83c-83fb24d6161c" alt="Centered Image">
+</p>
+
 
 ## Plotting number of tracks per platform
 
@@ -768,7 +805,10 @@ plt.tight_layout()
 plt.show()
 ```
 #### Expected Results
-![image](https://github.com/user-attachments/assets/14498e1b-1133-4ed1-896d-39c3bf6b5855)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/14498e1b-1133-4ed1-896d-39c3bf6b5855" alt="Centered Image">
+</p>
+
 
 ## Advanced Analysis
 
@@ -824,7 +864,10 @@ plt.legend(title="Mode")
 plt.show()
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/28282345-4797-4e80-b80b-e3e11ae73270)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/28282345-4797-4e80-b80b-e3e11ae73270" alt="Centered Image">
+</p>
+
 
 ### Plot for Total Playlist/Chart Count by Key and Mode
 
@@ -845,7 +888,10 @@ plt.legend(title="Mode")
 plt.show()
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/1506d30d-6c35-45d9-b8aa-f2171a8f53d9)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1506d30d-6c35-45d9-b8aa-f2171a8f53d9" alt="Centered Image">
+</p>
+
 
 ### Plot for Total Streams by Key and Mode
 
@@ -866,7 +912,10 @@ plt.legend(title="Mode")
 plt.show()
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/5c2de0a3-60bb-4689-aa7e-39ca07c15d65)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5c2de0a3-60bb-4689-aa7e-39ca07c15d65" alt="Centered Image">
+</p>
+
 
 # Top Artists per Total Appearances
 
@@ -886,7 +935,10 @@ top_artists_total_appearances = dataset.groupby('artist(s)_name')['total_appeara
 top_artists_total_appearances
 ```
 #### Expected Result
-![image](https://github.com/user-attachments/assets/12b12aa8-5911-4e40-b874-4407e8d46e58)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/12b12aa8-5911-4e40-b874-4407e8d46e58" alt="Centered Image">
+</p>
+
 
 ### Plot of Top Artist per Total Appearances
 
