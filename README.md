@@ -134,7 +134,7 @@ data_types_table
 #### Expected Result
 
 <div align="center">
-![image](https://github.com/user-attachments/assets/e812f99c-6d5c-4523-b8be-cd37913c059c)
+<img src="https://github.com/user-attachments/assets/e812f99c-6d5c-4523-b8be-cd37913c059c">
 </div>
 
 ### Data Type Plot
@@ -156,8 +156,9 @@ plt.show()
 ```
 
 #### Result
+
 <div align="center">
-![image](https://github.com/user-attachments/assets/b127bf52-89c4-4594-9121-1128ac60e3eb)
+<img src="https://github.com/user-attachments/assets/b127bf52-89c4-4594-9121-1128ac60e3eb">
 </div>
 
 ### Data Type for Each Column
