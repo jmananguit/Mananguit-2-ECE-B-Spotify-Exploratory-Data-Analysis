@@ -34,7 +34,7 @@ dataset
 ```
 - Throughout this code the variable name 'dataset' will be used to refer original csv file
 ## Determining the number of rows and columns
-Use the ```.shape()``` command in order get the values of its rows and columns 
+Use the ```.shape()``` command in order to get the values of its rows and columns 
 ``` python
 #Obtain the number of rows and columns from the dataset and assign it to a variable
 rows, columns = dataset.shape
