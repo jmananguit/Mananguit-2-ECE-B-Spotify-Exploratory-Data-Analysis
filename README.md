@@ -38,6 +38,8 @@ Use the ```.shape()``` command in order get the values of its rows and columns
 ``` python
 #Obtain the number of rows and columns from the dataset and assign it to a variable
 rows, columns = dataset.shape
+```
+``` python
 #Print the number of Rows and Columns
 print('Number of Rows:',rows)
 print('Number of Columns:',columns)
@@ -60,13 +62,18 @@ Number of Columns: 24
   
 - To properly count number of Missing Values, change the string into a NaN value
 ``` python
-# Convert non-numeric values to NaN
 dataset['streams'] = pd.to_numeric(dataset['streams'], errors='coerce')
-# Calculate the count of missing values for each column in the dataset
+```
+- Calculate the count of missing values for each column in the dataset
+``` python
 missingval_count = dataset.isnull().sum().reset_index()
-#Change column names for better presentation of table
+```
+- Change column names for better presentation of table
+``` python
 missingval_count.columns=['Columns', 'Missing_Value']
-# Display the missing values count and limit the number of printed results to not clutter up the terminal
+```
+- Display the missing values count and limit the number of printed results to not clutter up the terminal
+``` python
 print('Missing values per column:')
 print('\n',missingval_count.head(10))
 ```
@@ -105,21 +112,25 @@ plt.show() - Prints the plot
 ```
 ### Missing Values Plot
 
+- Calculate the sum of missing values (NaN) for each column in the dataset
 ``` python
-# Calculate the sum of missing values (NaN) for each column in the dataset
 missingval_count = dataset.isnull().sum()
-
-# Create a new figure with specified size 
+```
+- Create a new figure with specified size 
+``` python
 plt.figure(figsize=(12, 6))
-
-# Create a bar plot using seaborn
-# x-axis: column names from the dataset
-# y-axis: count of missing values
-# palette: "viridis" color scheme
-# hue: color intensity based on missing value count
+```
+- Create a bar plot using seaborn
+  - x-axis: column names from the dataset
+  - y-axis: count of missing values
+  - palette: "viridis" color scheme
+  - hue: color intensity based on missing value count
+    
+``` python
 sns.barplot(x=missingval_count.index, y=missingval_count.values, palette="viridis",hue=missingval_count)
-
-# Customize the format of the plot and add titles
+```
+- Customize the format of the plot and add titles
+``` python
 plt.title('Missing Values per Column')
 plt.xticks(rotation=90)
 plt.xlabel('Column Names')
@@ -138,11 +149,17 @@ plt.show()
 -Syntax: varname = dataFrame.dtypes.valuecounts()
 ``` python
 data_types = dataset.dtypes.value_counts()
-#to properly change the column name without affect the data, assign data_types to another variable
+```
+- To properly change the column name without affect the data, assign data_types to another variable
+``` python
 data_types_table = data_types.reset_index()
-#Rename columns
+```
+- Rename columns
+``` python
 data_types_table.columns = ['Data Type', 'No. Col']
-#print the table
+```
+- Print the table
+``` python
 print('Number of Columns per data type:')
 data_types_table
 ```
@@ -155,14 +172,16 @@ data_types_table
 ### Data Type Plot
 > :exclamation: Use the Plotting Commands Shown Earlier
 
+- Set figure with specified size 
 ```python
-# Set figure with specified size 
 plt.figure(figsize=(8, 6))
-
-# Create barplot using seaborn
+```
+- Create barplot using seaborn
+```python
 sns.barplot(x=data_types.index.astype(str), y=data_types.values, palette="viridis",hue=data_types.index.astype(str))
-
-# Customize the format of the plot and add titles
+```
+- Customize the format of the plot and add titles
+```python
 plt.title("Number of Each Data Type in Dataset")
 plt.xlabel("Data Type")
 plt.ylabel("Count of Columns")
@@ -187,12 +206,13 @@ plt.show()
 - **Problems with the Dataset**
   - **Missing Value Columns** - replace NaN values with 0 using command '.fillna()
   - **Columns with numbers** - replace values containing strings and change datatype into integers
- 
- ```python
-# Replace missing values with 0
-dataset.fillna(0, inplace=True)  # The inplace=True modifies the DataFrame in place
 
-#Replace values with commas and change data type into integer
+ -  Replace missing values with 0
+ ```python
+dataset.fillna(0, inplace=True)  # The inplace=True modifies the DataFrame in place
+```
+- Replace values with commas and change data type into integer
+ ```python
 dataset['in_deezer_playlists'] = dataset['in_deezer_playlists'].astype(str).str.replace(',', '').fillna(0).astype(float).astype(int)
 dataset['in_shazam_charts'] = dataset['in_shazam_charts'].astype(str).str.replace(',', '').fillna(0).astype(float).astype(int)
 ```
